@@ -44,4 +44,4 @@ class music_player(commands.Cog):
         await ctx.send("You resumed dat shit")
 
 def setup(client):
-    client.add_cog(music(client))
+    client.add_cog(music_player(client))
