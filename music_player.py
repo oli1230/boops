@@ -10,13 +10,13 @@ class music_player(commands.Cog):
     async def join(self, ctx):
         if ctx.author.voice is None:
             await ctx.send("You ain't in a voice channel you fuckin oaf")
-        voicce_channel = ctx.author.voice.channel
+        voice_channel = ctx.author.voice.channel
         if ctx.voice_client is None:
             await voice_channel.connect()
         else:
             await ctx.voice_client.move_to(voice_channel)
     
-    @command.command()
+    @commands.command()
     async def disconnect(self, ctx):
         await ctx.voice_client.disconnect()
     
@@ -34,12 +34,12 @@ class music_player(commands.Cog):
             vc.play(source)
     
     @commands.command()
-    async def pause(self, url):
+    async def pause(self, ctx, url):
         await ctx.voice_client.pause()
         await ctx.send("You paused dat shit")
     
     @commands.command()
-    async def resume(self, url):
+    async def resume(self, ctx, url):
         await ctx.voice_client.resume()
         await ctx.send("You resumed dat shit")
 
